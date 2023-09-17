@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 100px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+   
+    border-color: #000000;
+}
+
+.top-button {
+    background-color: #3c00ff;
+    color: #fff;
+    border-color: #000000;
+}
+
+.top-button:hover {
+    background-color: #6093ca;
+    border-color: #000000;
+}
+
+.maintain-button {
+    background-color: #1bc7a89e;
+    color: #fff;
+    border-color: #000000;
+}
+
+.maintain-button:hover {
+    background-color: #18dcb8;
+    border-color: #000000;
+}
+
+.assoc-button {
+    background-color: #5da728;
+    color: #fff;
+    border-color: #000000;
+}
+
+.assoc-button:hover {
+    background-color: #66e20d;
+    border-color: #000000;
+}
+
+.bottom-button {
+    background-color: #f17304;
+    color: #fff;
+    border-color: #000000;
+}
+
+.bottom-button:hover {
+    background-color: #da9152;
+    border-color: #000000;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px; /* Espacio entre los botones y el botón de volver */
+}
+
+.back-button:hover {
+    background-color: #1e2124;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.button-link:hover {
+    background-color: #717171;
+    border-color: #010101;
+    color: #0ef13c;
+}
