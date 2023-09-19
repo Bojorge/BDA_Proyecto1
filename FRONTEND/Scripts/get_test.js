@@ -1,5 +1,4 @@
-// JavaScript en tu frontend (puede ser en un archivo .js separado)
-const apiUrl = 'http://localhost:3000'; // Cambia esto por la URL de tu servidor Node.js
+const apiUrl = 'http://localhost:3000';
 
 document.addEventListener('DOMContentLoaded', () => {
   const getUsersButton = document.getElementById('getUsersButton');
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userList.innerHTML = ''; // Limpia la lista anterior
         data.forEach((user) => {
           const listItem = document.createElement('li');
-          listItem.textContent = user.name; // Supongamos que los usuarios tienen un campo "name"
+          listItem.textContent = `Nombre: ${user.nombre}, Profesión: ${user.profesion}, Edad: ${user.edad.low}`;
           userList.appendChild(listItem);
         });
       })
