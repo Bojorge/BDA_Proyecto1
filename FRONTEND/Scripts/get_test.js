@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000';
+const apiUrl = 'http://localhost:3000/api';
 
 document.addEventListener('DOMContentLoaded', () => {
   const getUsersButton = document.getElementById('getUsersButton');
