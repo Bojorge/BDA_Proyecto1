@@ -6,5 +6,3 @@ const driver = neo4j.driver(
 );
 
 module.exports = driver;
-
-//http://localhost:7687/
