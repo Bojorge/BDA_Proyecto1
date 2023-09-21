@@ -3,7 +3,11 @@ const controller = require('../controllers/investigadores_controller');
 
 const router = Router();
 
-router.post('/', controller.add);
+router.get('/', controller.get);
+router.post('/', controller.create);
+router.put('/', controller.update)
+
+
 
 module.exports = router;
 

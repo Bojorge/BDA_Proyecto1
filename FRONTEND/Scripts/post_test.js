@@ -1,52 +1,64 @@
-const apiUrl = 'http://localhost:3000/api/investigadores';  
+const apiUrl = 'http://localhost:3000/api/investigadores';
 
-document.addEventListener('DOMContentLoaded', () => {
-    const addUserForm = document.getElementById('addUserForm');
-    const successMessage = document.getElementById('successMessage');
-    const errorMessage = document.getElementById('errorMessage');
-
-    addUserForm.addEventListener('submit', (e) => {
-      e.preventDefault(); // Evita que el formulario se envíe automáticamente
-
-      const formData = new FormData(addUserForm);
-
-      // Convierte los datos del formulario en un objeto JSON
-      const investigador = {};
-      formData.forEach((value, key) => {
-        investigador[key] = value;
-      });
-
-      // Realiza una solicitud POST para agregar el investigador
-      fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(investigador),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Error al agregar investigador');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          // Procesa los datos como desees (por ejemplo, muestra una confirmación)
-          successMessage.style.display = 'block'; // Muestra el mensaje de éxito
-          errorMessage.style.display = 'none'; // Oculta el mensaje de error
-
-          // Oculta el mensaje de éxito después de 3 segundos
-          setTimeout(() => {
-            successMessage.style.display = 'none';
-          }, 3000);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-          errorMessage.style.display = 'block'; // Muestra el mensaje de error
-          successMessage.style.display = 'none'; // Oculta el mensaje de éxito
+function getData_from_html(){
+    document.addEventListener('DOMContentLoaded', () => {
+        const addUserForm = document.getElementById('addUserForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+      
+        addUserForm.addEventListener('submit', (e) => {
+          e.preventDefault(); // Evita que el formulario se envíe automáticamente
+      
+          const formData = new FormData(addUserForm);
+      
+          // Convierte los datos del formulario en un objeto JSON
+          const investigador = {};
+          formData.forEach((value, key) => {
+            investigador[key] = value;
+          });
+      
+         post(apiUrl, investigador);
+         
         });
     });
-});
+}
 
 
 
+
+
+
+function post(Url, data) {
+    // Configura las opciones para la solicitud POST
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', // Cambia el tipo de contenido según corresponda
+        // Puedes agregar encabezados adicionales aquí si es necesario
+      },
+      body: JSON.stringify(data), // Convierte el objeto de datos a formato JSON
+    };
+  
+    // Realiza la solicitud POST a la API
+    return fetch(Url, requestOptions)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('La solicitud no se pudo completar correctamente');
+        }
+        return response.json(); // Parsea la respuesta JSON si la hay
+      })
+      .then(data => {
+        // Maneja los datos de respuesta aquí
+        console.log('Respuesta de la API:', data);
+        return data;
+      })
+      .catch(error => {
+        // Maneja errores de la solicitud aquí
+        console.error('Error en la solicitud:', error);
+        throw error; // Puedes personalizar cómo manejar los errores según tus necesidades
+      });
+  }
+
+
+
+  getData_from_html();
