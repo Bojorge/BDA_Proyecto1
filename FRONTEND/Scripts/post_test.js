@@ -1,6 +1,6 @@
 const apiUrl = 'http://localhost:3000/api/investigadores';
 
-function getData(){
+function getData_from_html(){
     document.addEventListener('DOMContentLoaded', () => {
         const addUserForm = document.getElementById('addUserForm');
         const successMessage = document.getElementById('successMessage');
@@ -61,4 +61,4 @@ function post(Url, data) {
 
 
 
-  getData();
+  getData_from_html();

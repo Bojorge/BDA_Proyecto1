@@ -9,21 +9,20 @@ const get = async (request, response) => {
 }
 
 
-const post = async (request, response) => {
-  const investigador = request.body;
+const create = async (request, response) => {
+  const { id, nombre_completo, titulo_academico, institucion, email } = request.body;
   
   const session = database.session();
 
   try {
     const result = await session.run(queries.add, {
-      1: investigador.id,
-      2: investigador.nombre_completo,
-      3: investigador.titulo_academico,
-      4: investigador.institucion,
-      5: investigador.email
+      id,
+      nombre_completo,
+      titulo_academico,
+      institucion,
+      email
     });
     
-    // Respondemos con un mensaje de éxito (puedes personalizarlo según tus necesidades)
     response.status(201).json({ message: 'Agregado con éxito' });
   } catch (error) {
     console.error('Error al agregar:', error);
@@ -33,10 +32,36 @@ const post = async (request, response) => {
   }
 };
 
+
+
+const update = async (request, response) => {
+  const { id, nombre_completo, titulo_academico, institucion, email } = request.body;
+
+  const session = database.session();
+
+  try {
+    await session.run(queries.update, {
+      id,
+      nombre_completo,
+      titulo_academico,
+      institucion,
+      email
+    });
+
+    response.status(200).json({ message: 'Actualizado con éxito' });
+  } catch (error) {
+    console.error('Error al actualizar:', error);
+    response.status(500).json({ error: "Error en la consulta" });
+  } finally {
+    session.close();
+  }
+};
+
   
 module.exports = {
     get,
-    post
+    create,
+    update
 };
 
 
