@@ -1,29 +1,42 @@
 const database = require("../../database");
 const queries = require('../queries/investigadores_query');
 
-const add = async (id, nombre_completo, titulo_academico, institucion, email, response) => {
-  const session = database.session();
+
+const get = async (request, response) => { 
   
+  response.send("get investigadores");
+  
+}
+
+
+const post = async (request, response) => {
+  const investigador = request.body;
+  
+  const session = database.session();
+
   try {
-    await session.run(queries.add, {
-      id,
-      nombre_completo,
-      titulo_academico,
-      institucion,
-      email
+    const result = await session.run(queries.add, {
+      1: investigador.id,
+      2: investigador.nombre_completo,
+      3: investigador.titulo_academico,
+      4: investigador.institucion,
+      5: investigador.email
     });
-    response.status(200).json({ message: 'Investigador agregado con éxito' });
+    
+    // Respondemos con un mensaje de éxito (puedes personalizarlo según tus necesidades)
+    response.status(201).json({ message: 'Agregado con éxito' });
   } catch (error) {
+    console.error('Error al agregar:', error);
     response.status(500).json({ error: "Error en la consulta" });
   } finally {
     session.close();
   }
 };
-  
 
   
 module.exports = {
-    add
+    get,
+    post
 };
 
 

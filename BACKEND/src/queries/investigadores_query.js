@@ -1,7 +1,5 @@
-const add = "CREATE (:Investigador {id: $id, nombre_completo: $nombre_completo, titulo_academico: $titulo_academico, institucion: $institucion, email: $email})";
+const add = "CREATE (i:Investigador {id: $1, nombre_completo: $2, titulo_academico: $3, institucion: $4, email: $5})";
 
 module.exports = {
     add
 }
-
-
