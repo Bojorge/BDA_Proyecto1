@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CARGAR DATOS</title>
     <link rel="stylesheet" href="../Styles/cargar_datos.css">
+    <script src="../Scripts/investigadores_CRUD.js"></script>
+    <script src="../Scripts/proyectos_CRUD.js"></script>
+    <script src="../Scripts/publicaciones_CRUD.js"></script> 
 </head>
 <body>
     <div class="container">
@@ -18,17 +21,17 @@
         <div class="file-upload">
             <label>Investigadores</label>
             <input type="file" id="csvInvestigadores" accept=".csv">
-            <button type="submit" id="uploadInvestigadores">Enviar a la BD</button>
+            <button onclick="uploadInvestigadoresCSV()" type="submit" id="uploadInvestigadores">Enviar a la BD</button>
         </div>
         <div class="file-upload">
             <label>Proyectos</label>
             <input type="file" id="csvProyectos" accept=".csv">
-            <button type="submit" id="uploadProyectos">Enviar a la BD</button>
+            <button onclick="uploadProyectosCSV()" type="submit" id="uploadProyectos">Enviar a la BD</button>
         </div>
         <div class="file-upload">
             <label>Publicaciones</label>
             <input type="file" id="csvPublicaciones" accept=".csv">
-            <button type="submit" id="uploadPublicaciones">Enviar a la BD</button>
+            <button onclick="uploadPublicacionesCSV()" type="submit" id="uploadPublicaciones">Enviar a la BD</button>
         </div>
 
         <hr>

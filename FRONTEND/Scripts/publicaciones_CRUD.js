@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/api/investigadores';
+const apiUrl = 'http://localhost:3000/api/publicaciones';
 
 
 function get(Url) {
@@ -71,8 +71,8 @@ function update(url, data) {
 ////////////////////////////////////////////////////////////////// CSV /////////////////////////////////////////
 
 
-async function uploadInvestigadoresCSV() {
-  const csvFileInput = document.getElementById('csvInvestigadores');
+async function uploadPublicacionesCSV() {
+  const csvFileInput = document.getElementById('csvPublicaciones');
   const file = csvFileInput.files[0];
 
   if (!file) {
@@ -83,10 +83,10 @@ async function uploadInvestigadoresCSV() {
   const csvData = await readFile(file);
 
   // Convierte el contenido CSV en un array de objetos
-  const investigadores = parseCSV(csvData);
+  const proyectos = parseCSV(csvData);
 
   // Envía los datos al API
-  sendPublicaciones(apiUrl, investigadores);
+  sendPublicaciones(apiUrl, proyectos);
 }
 
 // Función para leer el contenido del archivo
@@ -108,41 +108,41 @@ function readFile(file) {
 function parseCSV(csvData) {
   const lines = csvData.split('\n');
   const headers = lines[0].split(',');
-  const investigadores = [];
+  const publicaciones = [];
 
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i].split(',');
-    const investigador = {};
+    const publicacion = {};
 
     for (let j = 0; j < headers.length; j++) {
-      investigador[headers[j].trim()] = line[j].trim();
+      publicacion[headers[j].trim()] = line[j].trim();
     }
 
-    investigadores.push(investigador);
+    publicaciones.push(publicacion);
   }
-  return investigadores;
+  return publicaciones;
 }
 
 
 // Función para enviar los datos al API
-async function sendPublicaciones(Url, investigadores) {
-  for (const investigador of investigadores) {
+async function sendPublicaciones(Url, publicaciones) {
+  for (const publicaciones of publicaciones) {
     const requestOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(investigador),
+      body: JSON.stringify(publicaciones),
     };
     try {
       const response = await fetch(Url, requestOptions);
       if (response.ok) {
-        console.log(`Datos enviados al API con éxito para ID: ${investigador.id}`);
+        console.log(`Datos enviados al API con éxito para ID: ${publicaciones.id}`);
       } else {
-        console.error(`Error al enviar los datos al API para ID: ${investigador.id}`);
+        console.error(`Error al enviar los datos al API para ID: ${publicaciones.id}`);
       }
     } catch (error) {
-      console.error(`Error al enviar los datos al API para ID: ${investigador.id}`, error);
+      console.error(`Error al enviar los datos al API para ID: ${publicaciones.id}`, error);
     }
   }
   alert('Todos los datos han sido enviados al API con éxito.');

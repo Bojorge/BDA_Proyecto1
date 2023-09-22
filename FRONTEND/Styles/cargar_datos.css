@@ -32,7 +32,7 @@ body {
 
 
 button[type="submit"] {
-    background-color: #4caf50;
+    background-color: #4fa751;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -41,7 +41,13 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #59ff00;
+    color: #000000;
+}
+
+button[type="submit"]:active {
+    background-color: #ff6600;
+    color: #391bb1;
 }
 
 hr {
