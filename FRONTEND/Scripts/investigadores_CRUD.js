@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/api/investigadores';
+const investigadoresUrl = 'http://localhost:3000/api/investigadores';
 
 
 function get(Url) {
@@ -86,7 +86,7 @@ async function uploadInvestigadoresCSV() {
   const investigadores = parseCSV(csvData);
 
   // Envía los datos al API
-  sendPublicaciones(apiUrl, investigadores);
+  sendPublicaciones(investigadoresUrl, investigadores);
 }
 
 // Función para leer el contenido del archivo

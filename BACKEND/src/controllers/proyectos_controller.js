@@ -1,5 +1,5 @@
 const database = require("../../database");
-const queries = require('../queries/investigadores_query');
+const queries = require('../queries/proyectos_query');
 
 
 const get = async (request, response) => { 
@@ -20,17 +20,17 @@ const get = async (request, response) => {
 
 
 const create = async (request, response) => {
-  const { id, nombre_completo, titulo_academico, institucion, email } = request.body;
+  const { idPry,titulo_proyecto,anno_inicio,duracion_meses,area_conocimiento } = request.body;
   
   const session = database.session();
 
   try {
     const result = await session.run(queries.add, {
-      id,
-      nombre_completo,
-      titulo_academico,
-      institucion,
-      email
+        idPry,
+        titulo_proyecto,
+        anno_inicio,
+        duracion_meses,
+        area_conocimiento
     });
     
     response.status(201).json({ message: 'Agregado con éxito' });
@@ -45,17 +45,17 @@ const create = async (request, response) => {
 
 
 const update = async (request, response) => {
-  const { id, nombre_completo, titulo_academico, institucion, email } = request.body;
+  const { idPry,titulo_proyecto,anno_inicio,duracion_meses,area_conocimiento } = request.body;
 
   const session = database.session();
 
   try {
     await session.run(queries.update, {
-      id,
-      nombre_completo,
-      titulo_academico,
-      institucion,
-      email
+        idPry,
+        titulo_proyecto,
+        anno_inicio,
+        duracion_meses,
+        area_conocimiento
     });
 
     response.status(200).json({ message: 'Actualizado con éxito' });

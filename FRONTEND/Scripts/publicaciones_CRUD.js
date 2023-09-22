@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/api/publicaciones';
+const publicacionesUrl = 'http://localhost:3000/api/publicaciones';
 
 
 function get(Url) {
@@ -86,7 +86,7 @@ async function uploadPublicacionesCSV() {
   const proyectos = parseCSV(csvData);
 
   // Envía los datos al API
-  sendPublicaciones(apiUrl, proyectos);
+  sendPublicaciones(publicacionesUrl, proyectos);
 }
 
 // Función para leer el contenido del archivo
@@ -126,23 +126,23 @@ function parseCSV(csvData) {
 
 // Función para enviar los datos al API
 async function sendPublicaciones(Url, publicaciones) {
-  for (const publicaciones of publicaciones) {
+  for (const publicacion of publicaciones) {
     const requestOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(publicaciones),
+      body: JSON.stringify(publicacion),
     };
     try {
       const response = await fetch(Url, requestOptions);
       if (response.ok) {
-        console.log(`Datos enviados al API con éxito para ID: ${publicaciones.id}`);
+        console.log(`Datos enviados al API con éxito para ID: ${publicacion.idPub}`);
       } else {
-        console.error(`Error al enviar los datos al API para ID: ${publicaciones.id}`);
+        console.error(`Error al enviar los datos al API para ID: ${publicacion.idPub}`);
       }
     } catch (error) {
-      console.error(`Error al enviar los datos al API para ID: ${publicaciones.id}`, error);
+      console.error(`Error al enviar los datos al API para ID: ${publicacion.idPub}`, error);
     }
   }
   alert('Todos los datos han sido enviados al API con éxito.');

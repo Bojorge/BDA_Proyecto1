@@ -1,5 +1,5 @@
 const database = require("../../database");
-const queries = require('../queries/investigadores_query');
+const queries = require('../queries/publicaciones_query');
 
 
 const get = async (request, response) => { 
@@ -20,17 +20,16 @@ const get = async (request, response) => {
 
 
 const create = async (request, response) => {
-  const { id, nombre_completo, titulo_academico, institucion, email } = request.body;
+  const { idPub,titulo_publicacion,anno_publicacion,nombre_revista } = request.body;
   
   const session = database.session();
 
   try {
     const result = await session.run(queries.add, {
-      id,
-      nombre_completo,
-      titulo_academico,
-      institucion,
-      email
+        idPub,
+        titulo_publicacion,
+        anno_publicacion,
+        nombre_revista
     });
     
     response.status(201).json({ message: 'Agregado con éxito' });
@@ -45,17 +44,16 @@ const create = async (request, response) => {
 
 
 const update = async (request, response) => {
-  const { id, nombre_completo, titulo_academico, institucion, email } = request.body;
+  const { idPub,titulo_publicacion,anno_publicacion,nombre_revista } = request.body;
 
   const session = database.session();
 
   try {
     await session.run(queries.update, {
-      id,
-      nombre_completo,
-      titulo_academico,
-      institucion,
-      email
+        idPub,
+        titulo_publicacion,
+        anno_publicacion,
+        nombre_revista
     });
 
     response.status(200).json({ message: 'Actualizado con éxito' });

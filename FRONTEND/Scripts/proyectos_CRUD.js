@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/api/proyectos';
+const proyectosUrl = 'http://localhost:3000/api/proyectos';
 
 
 function get(Url) {
@@ -86,7 +86,7 @@ async function uploadProyectosCSV() {
   const proyectos = parseCSV(csvData);
 
   // Envía los datos al API
-  sendProyectos(apiUrl, proyectos);
+  sendProyectos(proyectosUrl, proyectos);
 }
 
 // Función para leer el contenido del archivo
@@ -137,12 +137,12 @@ async function sendProyectos(Url, proyectos) {
     try {
       const response = await fetch(Url, requestOptions);
       if (response.ok) {
-        console.log(`Datos enviados al API con éxito para ID: ${proyecto.id}`);
+        console.log(`Datos enviados al API con éxito para ID: ${proyecto.idPry}`);
       } else {
-        console.error(`Error al enviar los datos al API para ID: ${proyecto.id}`);
+        console.error(`Error al enviar los datos al API para ID: ${proyecto.idPry}`);
       }
     } catch (error) {
-      console.error(`Error al enviar los datos al API para ID: ${proyecto.id}`, error);
+      console.error(`Error al enviar los datos al API para ID: ${proyecto.idPry}`, error);
     }
   }
   alert('Todos los datos han sido enviados al API con éxito.');
