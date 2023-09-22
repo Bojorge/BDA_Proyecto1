@@ -66,3 +66,15 @@ function create(Url, data) {
         console.error('Error en la solicitud:', error);
       });
   }
+
+
+
+  get(apiUrl)
+  .then((response) => {
+    // Aquí puedes manejar los datos recibidos de la API
+    console.log('Datos de la API:', response);
+  })
+  .catch((error) => {
+    // Aquí puedes manejar los errores
+    console.error('Error al obtener los datos:', error);
+  });
