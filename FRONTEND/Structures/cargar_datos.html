@@ -1,12 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargar datos</title>
-    <link rel="stylesheet" href="..\Styles\cargar_datos.css">
+    <title>CARGAR DATOS</title>
+    <link rel="stylesheet" href="../Styles/cargar_datos.css">
 </head>
 <body>
-    
+    <div class="container">
+        <a href="home.html" class="home-button">Regresar a la página de inicio</a>
+        <h1>CARGAR ARCHIVOS CSV</h1>
+
+        <hr>
+
+        <h3>Objetos</h3>
+
+        <div class="file-upload">
+            <label>Investigadores</label>
+            <input type="file" id="csvInvestigadores" accept=".csv">
+            <button type="submit" id="uploadInvestigadores">Enviar a la BD</button>
+        </div>
+        <div class="file-upload">
+            <label>Proyectos</label>
+            <input type="file" id="csvProyectos" accept=".csv">
+            <button type="submit" id="uploadProyectos">Enviar a la BD</button>
+        </div>
+        <div class="file-upload">
+            <label>Publicaciones</label>
+            <input type="file" id="csvPublicaciones" accept=".csv">
+            <button type="submit" id="uploadPublicaciones">Enviar a la BD</button>
+        </div>
+
+        <hr>
+
+        <h3>Relaciones</h3>
+
+        <div class="file-upload">
+            <label>Investigadores - Proyectos</label>
+            <input type="file" id="csvRelacionInvestigadoresProyectos" accept=".csv">
+            <button type="submit" id="uploadRelacionInvestigadoresProyectos">Enviar a la BD</button>
+        </div>
+        <div class="file-upload">
+            <label>Publicaciones - Proyectos</label>
+            <input type="file" id="csvRelacionPublicacionesProyectos" accept=".csv">
+            <button type="submit" id="uploadRelacionPublicacionesProyectos">Enviar a la BD</button>
+        </div>
+    </div>
 </body>
 </html>
+
+
+
+
