@@ -1,6 +1,8 @@
 const investigadoresUrl = 'http://localhost:3000/api/investigadores';
 
 
+////////////////////////////////////////////////////////////////// CRUD (sin Delete) /////////////////////////////////////////
+
 function get(Url) {
     return fetch(Url)
       .then((response) => {
@@ -68,7 +70,7 @@ function update(url, data) {
 }
 
 
-////////////////////////////////////////////////////////////////// CSV /////////////////////////////////////////
+////////////////////////////////////////////////////////////////// SUBIR CSV /////////////////////////////////////////
 
 
 async function uploadInvestigadoresCSV() {
@@ -147,6 +149,105 @@ async function sendPublicaciones(Url, investigadores) {
   }
   alert('Todos los datos han sido enviados al API con éxito.');
 }
+
+
+
+////////////////////////////////////////////////////////////////// Mantenimiento /////////////////////////////////////////
+
+ // JavaScript para cargar opciones del select y manejar acciones
+ const selectInvestigador = document.getElementById('selectInvestigador');
+ const nombreEditar = document.getElementById('nombreEditar');
+ const tituloEditar = document.getElementById('tituloEditar');
+ const institucionEditar = document.getElementById('institucionEditar');
+ const emailEditar = document.getElementById('emailEditar');
+ const btnAgregar = document.getElementById('btnAgregar');
+ const btnEditar = document.getElementById('btnEditar');
+
+ // Función para cargar opciones del select (debes modificar esto para hacer una solicitud GET)
+ function cargarOpcionesSelect() {
+     // Simulación de datos de investigadores
+     const investigadores = [
+         { id: 1, nombre: 'Investigador 1' },
+         { id: 2, nombre: 'Investigador 2' },
+         { id: 3, nombre: 'Investigador 3' }
+     ];
+
+     // Llenar opciones del select
+     investigadores.forEach((investigador) => {
+         const option = document.createElement('option');
+         option.value = investigador.id;
+         option.textContent = investigador.nombre;
+         selectInvestigador.appendChild(option);
+     });
+ }
+
+ // Manejar la selección de un investigador en el select
+ selectInvestigador.addEventListener('change', () => {
+     const selectedId = selectInvestigador.value;
+     // Debes obtener los detalles del investigador seleccionado y llenar los campos
+     // Esto es solo un ejemplo con datos simulados
+     if (selectedId === '1') {
+         nombreEditar.value = 'Investigador 1';
+         tituloEditar.value = 'Título 1';
+         institucionEditar.value = 'Institución 1';
+         emailEditar.value = 'investigador1@example.com';
+     } else if (selectedId === '2') {
+         nombreEditar.value = 'Investigador 2';
+         tituloEditar.value = 'Título 2';
+         institucionEditar.value = 'Institución 2';
+         emailEditar.value = 'investigador2@example.com';
+     } else if (selectedId === '3') {
+         nombreEditar.value = 'Investigador 3';
+         tituloEditar.value = 'Título 3';
+         institucionEditar.value = 'Institución 3';
+         emailEditar.value = 'investigador3@example.com';
+     }
+ });
+
+ // Manejar el botón de agregar (debes modificar esto para hacer una solicitud POST)
+ btnAgregar.addEventListener('click', () => {
+     const nuevoInvestigador = {
+         id: document.getElementById('id').value,
+         nombre: document.getElementById('nombre').value,
+         titulo: document.getElementById('titulo').value,
+         institucion: document.getElementById('institucion').value,
+         email: document.getElementById('email').value
+     };
+
+     // Debes realizar una solicitud POST con los datos del nuevo investigador
+     // Esto es solo un ejemplo
+     console.log('Agregando investigador:', nuevoInvestigador);
+     alert('Investigador agregado con éxito');
+ });
+
+ // Manejar el botón de editar (debes modificar esto para hacer una solicitud PUT)
+ btnEditar.addEventListener('click', () => {
+     const idInvestigador = selectInvestigador.value;
+     const investigadorEditado = {
+         id: idInvestigador,
+         nombre: nombreEditar.value,
+         titulo: tituloEditar.value,
+         institucion: institucionEditar.value,
+         email: emailEditar.value
+     };
+
+     // Debes realizar una solicitud PUT con los datos del investigador editado
+     // Esto es solo un ejemplo
+     console.log('Editando investigador:', investigadorEditado);
+     alert('Investigador editado con éxito');
+ });
+
+ // Cargar opciones del select al cargar la página
+ cargarOpcionesSelect();
+
+
+
+
+
+
+
+
+
 
 
 
