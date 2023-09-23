@@ -88,7 +88,7 @@ async function uploadInvestigadoresCSV() {
   const investigadores = parseCSV(csvData);
 
   // Envía los datos al API
-  sendPublicaciones(investigadoresUrl, investigadores);
+  sendInvestigadores(investigadoresUrl, investigadores);
 }
 
 // Función para leer el contenido del archivo
@@ -127,7 +127,7 @@ function parseCSV(csvData) {
 
 
 // Función para enviar los datos al API
-async function sendPublicaciones(Url, investigadores) {
+async function sendInvestigadores(Url, investigadores) {
   for (const investigador of investigadores) {
     const requestOptions = {
       method: 'POST',
@@ -154,8 +154,21 @@ async function sendPublicaciones(Url, investigadores) {
 
 ////////////////////////////////////////////////////////////////// Mantenimiento /////////////////////////////////////////
 
- // JavaScript para cargar opciones del select y manejar acciones
+
+ const id = document.getElementById('id');
+ const nombre_completo = document.getElementById('nombre');
+ const titulo_academico = document.getElementById('titulo');
+ const institucion = document.getElementById('institucion');
+ const email = document.getElementById('email');
+
+ id.value = '';
+ nombre_completo.value = '';
+ titulo_academico.value = '';
+ institucion.value = '';
+ email.value = '';
+
  const selectInvestigador = document.getElementById('selectInvestigador');
+
  const nombreEditar = document.getElementById('nombreEditar');
  const tituloEditar = document.getElementById('tituloEditar');
  const institucionEditar = document.getElementById('institucionEditar');
@@ -163,100 +176,101 @@ async function sendPublicaciones(Url, investigadores) {
  const btnAgregar = document.getElementById('btnAgregar');
  const btnEditar = document.getElementById('btnEditar');
 
- // Función para cargar opciones del select (debes modificar esto para hacer una solicitud GET)
- function cargarOpcionesSelect() {
-     // Simulación de datos de investigadores
-     const investigadores = [
-         { id: 1, nombre: 'Investigador 1' },
-         { id: 2, nombre: 'Investigador 2' },
-         { id: 3, nombre: 'Investigador 3' }
-     ];
 
-     // Llenar opciones del select
-     investigadores.forEach((investigador) => {
-         const option = document.createElement('option');
-         option.value = investigador.id;
-         option.textContent = investigador.nombre;
-         selectInvestigador.appendChild(option);
-     });
- }
-
- // Manejar la selección de un investigador en el select
- selectInvestigador.addEventListener('change', () => {
-     const selectedId = selectInvestigador.value;
-     // Debes obtener los detalles del investigador seleccionado y llenar los campos
-     // Esto es solo un ejemplo con datos simulados
-     if (selectedId === '1') {
-         nombreEditar.value = 'Investigador 1';
-         tituloEditar.value = 'Título 1';
-         institucionEditar.value = 'Institución 1';
-         emailEditar.value = 'investigador1@example.com';
-     } else if (selectedId === '2') {
-         nombreEditar.value = 'Investigador 2';
-         tituloEditar.value = 'Título 2';
-         institucionEditar.value = 'Institución 2';
-         emailEditar.value = 'investigador2@example.com';
-     } else if (selectedId === '3') {
-         nombreEditar.value = 'Investigador 3';
-         tituloEditar.value = 'Título 3';
-         institucionEditar.value = 'Institución 3';
-         emailEditar.value = 'investigador3@example.com';
-     }
- });
+ 
 
  // Manejar el botón de agregar (debes modificar esto para hacer una solicitud POST)
  btnAgregar.addEventListener('click', () => {
      const nuevoInvestigador = {
-         id: document.getElementById('id').value,
-         nombre: document.getElementById('nombre').value,
-         titulo: document.getElementById('titulo').value,
-         institucion: document.getElementById('institucion').value,
-         email: document.getElementById('email').value
+      id : document.getElementById('id').value,
+      nombre_completo : document.getElementById('nombre').value,
+      titulo_academico : document.getElementById('titulo').value,
+      institucion : document.getElementById('institucion').value,
+      email : document.getElementById('email').value
      };
 
-     // Debes realizar una solicitud POST con los datos del nuevo investigador
-     // Esto es solo un ejemplo
-     console.log('Agregando investigador:', nuevoInvestigador);
+     create(investigadoresUrl, nuevoInvestigador);
+
+     //console.log('Agregando investigador:', nuevoInvestigador);
      alert('Investigador agregado con éxito');
+     location.reload();
  });
+
+
 
  // Manejar el botón de editar (debes modificar esto para hacer una solicitud PUT)
  btnEditar.addEventListener('click', () => {
      const idInvestigador = selectInvestigador.value;
      const investigadorEditado = {
          id: idInvestigador,
-         nombre: nombreEditar.value,
-         titulo: tituloEditar.value,
+         nombre_completo: nombreEditar.value,
+         titulo_academico: tituloEditar.value,
          institucion: institucionEditar.value,
          email: emailEditar.value
      };
 
-     // Debes realizar una solicitud PUT con los datos del investigador editado
-     // Esto es solo un ejemplo
-     console.log('Editando investigador:', investigadorEditado);
+     
+     update(investigadoresUrl, investigadorEditado);
+
+     //console.log('Editando investigador:', investigadorEditado);
      alert('Investigador editado con éxito');
+     location.reload();
  });
 
- // Cargar opciones del select al cargar la página
- cargarOpcionesSelect();
 
 
 
-
-
-
-
-
-
-
-
-
-/*
-  get(apiUrl)
+  get(investigadoresUrl)
   .then((response) => {
     console.log('Datos de la API:', response);
+    investigadoresList.innerHTML = '';
+
+    // Llenar la tabla con los datos de los investigadores
+    response.forEach((investigador) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+          <td>${investigador.id}</td>
+          <td>${investigador.nombre_completo}</td>
+          <td>${investigador.titulo_academico}</td>
+          <td>${investigador.institucion}</td>
+          <td>${investigador.email}</td>
+      `;
+      investigadoresList.appendChild(row);
+  });
+
+
+  // Llenar opciones del select
+  response.forEach((investigador) => {
+    const option = document.createElement('option');
+    option.value = investigador.id;
+    option.textContent = `${investigador.id} - ${investigador.nombre_completo}`;
+    selectInvestigador.appendChild(option);
+  });
+
+  nombreEditar.value = '';
+  tituloEditar.value = '';
+  institucionEditar.value = '';
+  emailEditar.value = '';
+
+  selectInvestigador.addEventListener('change', () => {
+    const selectedId = selectInvestigador.value;
+    // Buscar el investigador seleccionado en la lista de investigadores
+    const selectedInvestigador = response.find(
+      (investigador) => investigador.id === selectedId
+    );
+    if (selectedInvestigador) {
+      // Actualizar campos de edición con los datos del investigador seleccionado
+      nombreEditar.value = selectedInvestigador.nombre_completo;
+      tituloEditar.value = selectedInvestigador.titulo_academico;
+      institucionEditar.value = selectedInvestigador.institucion;
+      emailEditar.value = selectedInvestigador.email;
+    }
+  });
+
   })
   .catch((error) => {
     console.error('Error al obtener los datos:', error);
   });
-*/
+
+
+  

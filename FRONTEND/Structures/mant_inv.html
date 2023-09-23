@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mantenimiento de Investigadores</title>
     <link rel="stylesheet" href="../Styles//mant_inv.css">
-    <script src="../Scripts/investigadores_CRUD.js"></script>
+    
 </head>
 <body>
     <div>
@@ -24,15 +24,42 @@
         </div>
         <div class="column select-column">
             <h2>Seleccionar Investigador</h2>
-            <select id="selectInvestigador" class="select-input">
+            <select id="selectInvestigador" class="select-input" >
                 <!-- Opciones se llenarán mediante JavaScript -->
+                <option value="">Seleccionar</option>
             </select>
+            <br>
+            <br>
             <input type="text" id="nombreEditar" class="form-input" placeholder="Nombre Completo">
             <input type="text" id="tituloEditar" class="form-input" placeholder="Título Académico">
             <input type="text" id="institucionEditar" class="form-input" placeholder="Institución">
             <input type="text" id="emailEditar" class="form-input" placeholder="Email">
             <button id="btnEditar" class="btn btn-update">Editar</button>
         </div>
+
+        <div class="column view-column">
+            <h2>Lista de Investigadores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre Completo</th>
+                        <th>Título Académico</th>
+                        <th>Institución</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="investigadoresList">
+                    <!-- Aquí se llenará la lista de investigadores mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
     </div>
+
+    <script src="../Scripts/investigadores_CRUD.js"></script>
 </body>
 </html>
+
+
+
