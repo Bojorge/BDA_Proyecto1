@@ -3,10 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asociar investigador</title>
-    <link rel="stylesheet" href="..\Styles\aso_inv.css">
+    <title>Asociar Investigador y Proyectos</title>
+    <link rel="stylesheet" href="../Styles/aso_inv.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="column">
+            <h2>Seleccionar Investigador</h2>
+            <select id="selectInvestigador">
+                <!-- Opciones se llenarán mediante JavaScript -->
+            </select>
+            <div id="investigadorDetails">
+                <!-- Aquí se mostrarán los detalles del investigador seleccionado -->
+            </div>
+        </div>
+        <div class="column">
+            <h2>Seleccionar Proyectos</h2>
+            <!-- Checkbox de proyectos deshabilitados por defecto -->
+            <div class="project-item">
+                <label class="project-label" for="proyecto1">Proyecto de Energía Solar</label>
+                <div class="project-details">
+                    <p>Año de inicio: 2022</p>
+                    <p>Duración en meses: 12</p>
+                    <p>Área de conocimiento: Ciencias</p>
+                </div>
+                <input type="checkbox" id="proyecto1" disabled>
+            </div>
+            <div class="project-item">
+                <label class="project-label" for="proyecto2">Estudio sobre Cambio Climático</label>
+                <div class="project-details">
+                    <p>Año de inicio: 2023</p>
+                    <p>Duración en meses: 18</p>
+                    <p>Área de conocimiento: Tecnología</p>
+                </div>
+                <input type="checkbox" id="proyecto2" disabled>
+            </div>
+            <div class="project-item">
+                <label class="project-label" for="proyecto3">Investigación de Inteligencia Artificial</label>
+                <div class="project-details">
+                    <p>Año de inicio: 2021</p>
+                    <p>Duración en meses: 24</p>
+                    <p>Área de conocimiento: Arte</p>
+                </div>
+                <input type="checkbox" id="proyecto3" disabled>
+            </div>
+            <!-- Botón para asociar -->
+            <button id="btnAsociar" disabled>Asociar</button>
+        </div>
+    </div>
+
+    <script  src="../Scripts/investigadores_proyectos.js"></script>
 </body>
 </html>
