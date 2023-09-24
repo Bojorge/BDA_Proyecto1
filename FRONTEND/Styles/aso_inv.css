@@ -1,9 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    margin: 0;
+    margin-top: 50px;
+    
 }
 
 .container {
@@ -13,6 +14,14 @@ body {
     background-color: #f0f0f0;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .column {
@@ -67,4 +76,16 @@ h3 {
 /* Estilos para las etiquetas */
 .project-label {
     margin-right: 10px;
+}
+
+.home-button {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 100%;
+    text-decoration: none; 
+}
+
+.home-button:hover {
+    background-color: #3d3d3d;
 }
