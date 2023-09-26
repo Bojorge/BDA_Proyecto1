@@ -3,10 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mantenimiento de proyectos</title>
-    <link rel="stylesheet" href="..\Styles\mant_proy.css">
+    <title>Mantenimiento de Investigadores</title>
+    <link rel="stylesheet" href="../Styles//mant_proy.css">
+    
 </head>
 <body>
-    
+    <div>
+        <a href="home.html" class="home-button">Regresar a la página de inicio</a>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="column form-column">
+            <h2>Agregar Proyecto</h2>
+            <input type="text" id="id" class="form-input" placeholder="ID">
+            <input type="text" id="titulo" class="form-input" placeholder="Titulo del proyecto">
+            <input type="text" id="anno" class="form-input" placeholder="Año de inicio">
+            <input type="text" id="duracion" class="form-input" placeholder="Duración en meses">
+            <input type="text" id="area" class="form-input" placeholder="Area de conocimiento">
+            <button id="btnAgregar" class="btn">Agregar</button>
+        </div>
+        <div class="column select-column">
+            <h2>Seleccionar Proyecto</h2>
+            <select id="selectProyecto" class="select-input" >
+                <!-- Opciones se llenarán mediante JavaScript -->
+                <option value="">Seleccionar</option>
+            </select>
+            <br>
+            <br>
+            <input type="text" id="tituloEditar" class="form-input" placeholder="Titulo del proyecto">
+            <input type="text" id="annoEditar" class="form-input" placeholder="Año de inicio">
+            <input type="text" id="duracionEditar" class="form-input" placeholder="Duración en meses">
+            <input type="text" id="areaEditar" class="form-input" placeholder="Area de conocimiento">
+            <button id="btnEditar" class="btn btn-update">Editar</button>
+        </div>
+
+        <div class="column view-column">
+            <h2>Lista de Proyectos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo del proyecto</th>
+                        <th>Año de inicio</th>
+                        <th>Duración en meses</th>
+                        <th>Area de conocimiento</th>
+                    </tr>
+                </thead>
+                <tbody id="proyectosList">
+                    <!-- Aquí se llenará la lista de investigadores mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+    <script src="../Scripts/proyectos_CRUD.js"></script>
 </body>
 </html>
+
+
+

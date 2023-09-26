@@ -3,10 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mantenimiento de publicaciones</title>
-    <link rel="stylesheet" href="..\Styles\mant_pub.css">
+    <title>Mantenimiento de Investigadores</title>
+    <link rel="stylesheet" href="../Styles//mant_pub.css">
+    
 </head>
 <body>
-    
+    <div>
+        <a href="home.html" class="home-button">Regresar a la página de inicio</a>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="column form-column">
+            <h2>Agregar Proyecto</h2>
+            <input type="text" id="id" class="form-input" placeholder="ID">
+            <input type="text" id="titulo" class="form-input" placeholder="Titulo de la publicación">
+            <input type="text" id="anno" class="form-input" placeholder="Año de publicación">
+            <input type="text" id="nombre" class="form-input" placeholder="Nombre de la revista">
+            <button id="btnAgregar" class="btn">Agregar</button>
+        </div>
+        <div class="column select-column">
+            <h2>Seleccionar Proyecto</h2>
+            <select id="selectPublicacion" class="select-input" >
+                <!-- Opciones se llenarán mediante JavaScript -->
+                <option value="">Seleccionar</option>
+            </select>
+            <br>
+            <br>
+            <input type="text" id="tituloEditar" class="form-input" placeholder="Titulo de la publicación">
+            <input type="text" id="annoEditar" class="form-input" placeholder="Año de publicación">
+            <input type="text" id="nombreEditar" class="form-input" placeholder="Nombre de la revista">
+            <button id="btnEditar" class="btn btn-update">Editar</button>
+        </div>
+
+        <div class="column view-column">
+            <h2>Lista de Publicaciones</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo de la publicación</th>
+                        <th>Año de la publicación</th>
+                        <th>Nombre de la revista</th>
+                    </tr>
+                </thead>
+                <tbody id="publicacionesList">
+                    <!-- Aquí se llenará la lista de investigadores mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+    <script src="../Scripts/publicaciones_CRUD.js"></script>
 </body>
 </html>
+
+
+

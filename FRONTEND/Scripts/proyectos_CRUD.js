@@ -159,3 +159,114 @@ async function sendProyectos(Url, proyectos) {
     console.error('Error al obtener los datos:', error);
   });
 */
+
+
+////////////////////////////////////////////////////////////////// Mantenimiento /////////////////////////////////////////
+
+const idPry = document.getElementById('id');
+const titulo_proyecto = document.getElementById('titulo');
+const anno_inicio = document.getElementById('anno');
+const duracion_meses = document.getElementById('duracion');
+const area_conocimiento = document.getElementById('area');
+
+idPry.value = '';
+titulo_proyecto.value = '';
+anno_inicio.value = '';
+duracion_meses.value = '';
+area_conocimiento.value = '';
+
+const selectProyecto = document.getElementById('selectProyecto');
+
+const tituloEditar = document.getElementById('tituloEditar');
+const annoEditar = document.getElementById('annoEditar');
+const duracionEditar = document.getElementById('duracionEditar');
+const areaEditar = document.getElementById('areaEditar');
+const btnAgregar = document.getElementById('btnAgregar');
+const btnEditar = document.getElementById('btnEditar');
+
+
+// Manejar el botón de agregar (debes modificar esto para hacer una solicitud POST)
+btnAgregar.addEventListener('click', () => {
+const nuevoProyecto = {
+  idPry : document.getElementById('id').value,
+  titulo_proyecto : document.getElementById('titulo').value,
+  anno_inicio : document.getElementById('anno').value,
+  duracion_meses : document.getElementById('duracion').value,
+  area_conocimiento : document.getElementById('area').value
+};
+
+  create(proyectosUrl, nuevoProyecto);
+
+  //console.log('Agregando proyecto:', nuevoProyecto);
+  alert('Proyecto agregado con éxito');
+  location.reload();
+});
+
+// Manejar el botón de editar (debes modificar esto para hacer una solicitud PUT)
+btnEditar.addEventListener('click', () => {
+  const idProyecto = selectProyecto.value;
+  const proyectoEditado = {
+    idPry: idProyecto,
+    titulo_proyecto: tituloEditar.value,
+    anno_inicio: annoEditar.value,
+    duracion_meses: duracionEditar.value,
+    area_conocimiento: areaEditar.value
+  };
+
+  update(proyectosUrl, proyectoEditado);
+
+  //console.log('Editando proyecto:', proyectoInvestigado);
+  alert('Proyecto editado con éxito');
+  location.reload();
+});
+
+get(proyectosUrl)
+.then((response) => {
+  console.log('Datos de la API:', response);
+  proyectosList.innerHTML = '';
+
+  // Llenar la tabla con los datos de los investigadores
+  response.forEach((proyecto) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td>${proyecto.idPry}</td>
+        <td>${proyecto.titulo_proyecto}</td>
+        <td>${proyecto.anno_inicio}</td>
+        <td>${proyecto.duracion_meses}</td>
+        <td>${proyecto.area_conocimiento}</td>
+    `;
+    proyectosList.appendChild(row);
+});
+
+  // Llenar opciones del select
+  response.forEach((proyecto) => {
+    const option = document.createElement('option');
+    option.value = proyecto.idPry;
+    option.textContent = `${proyecto.idPry} - ${proyecto.titulo_proyecto}`;
+    selectProyecto.appendChild(option);
+  });
+
+  tituloEditar.value = '';
+  annoEditar.value = '';
+  duracionEditar.value = '';
+  areaEditar.value = '';
+
+  selectProyecto.addEventListener('change', () => {
+    const selectedId = selectProyecto.value;
+    // Buscar el proyecto seleccionado en la lista de proyectos
+    const selectedProyecto = response.find(
+      (proyecto) => proyecto.idPry === selectedId
+    );
+    if (selectedProyecto) {
+      // Actualizar campos de edición con los datos del investigador seleccionado
+      tituloEditar.value = selectedProyecto.titulo_proyecto;
+      annoEditar.value = selectedProyecto.anno_inicio;
+      duracionEditar.value = selectedProyecto.duracion_meses;
+      areaEditar.value = selectedProyecto.area_conocimiento;
+    }
+  });
+
+  })
+  .catch((error) => {
+    console.error('Error al obtener los datos:', error);
+  });
