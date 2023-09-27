@@ -69,12 +69,6 @@ async function fetchData() {
     // Obtener datos de proyectos desde la base de datos
     const proyectosData = await get(proyectos_Url);
 
-
-
-
-    //const projectCheckboxes = [];
-
-
     // Crear checkboxes y detalles de proyectos con los datos obtenidos
    proyectosData.forEach((proyecto, index) => {
     const projectItem = document.createElement('div');
@@ -160,6 +154,8 @@ btnAsociar.addEventListener('click', () => {
           investigadorId: selectedInvestigadorId,
           proyectosIds: selectedProyectos,
       };
+      
+      console.log(data);
       
       // Llama a la función para enviar los datos al servidor (aquí puedes usar la función "create" que ya tienes)
       create(inv_proy_Url, data)

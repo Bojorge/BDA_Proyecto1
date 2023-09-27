@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    
+}
+ 
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+}
+
+select, input[type="checkbox"], button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00ffe5;
+    color: #000000;
+}
+
+button:active {
+    background-color: #ff0000;
+    color: #01f51d;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+/* Estilos para los divs que contienen etiquetas y checkboxes */
+.project-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Estilos para las etiquetas */
+.project-label {
+    margin-right: 10px;
+}
+
+.home-button {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 100%;
+    text-decoration: none; 
+}
+
+.home-button:hover {
+    background-color: #3d3d3d;
+}

@@ -3,10 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asociar articulo</title>
-    <link rel="stylesheet" href="..\Styles\aso_art.css">
+    <title>Asociar Artículos y Proyectos</title>
+    <link rel="stylesheet" href="../Styles/aso_art.css">
 </head>
 <body>
-    
+    <div class="center-container">
+        <a href="home.html" class="home-button">Regresar a la página de inicio</a>
+    </div>
+    <br>
+    <div class="container">
+        <div class="column">
+            <h2>Seleccionar Proyectos</h2>
+            <select id="selectProyecto">
+                <!-- Opciones se llenarán mediante JavaScript -->
+                <option value="">Seleccionar</option>
+            </select>
+            <div id="proyectoDetails">
+                <!-- Aquí se mostrarán los detalles del proyecto seleccionado -->
+            </div>
+        </div>
+        <div class="column">
+            <h2>Seleccionar Artículos</h2>
+            <!-- Checkbox de artículos deshabilitados por defecto -->
+            <!-- Botón para asociar -->
+            <button id="btnAsociar">Asociar</button>
+        </div>
+    </div>
+    <script src="../Scripts/proyectos_publicaciones.js"></script>
 </body>
 </html>
