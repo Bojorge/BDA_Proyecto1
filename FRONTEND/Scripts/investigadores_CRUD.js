@@ -200,7 +200,7 @@ async function sendInvestigadores(Url, investigadores) {
 
  // Manejar el botón de editar (debes modificar esto para hacer una solicitud PUT)
  btnEditar.addEventListener('click', () => {
-     const idInvestigador = selectInvestigador.value;
+     const idInvestigador = selectInvestigador_.value;
      const investigadorEditado = {
          id: idInvestigador,
          nombre_completo: nombreEditar.value,
@@ -244,7 +244,7 @@ async function sendInvestigadores(Url, investigadores) {
     const option = document.createElement('option');
     option.value = investigador.id;
     option.textContent = `${investigador.id} - ${investigador.nombre_completo}`;
-    selectInvestigador.appendChild(option);
+    selectInvestigador_.appendChild(option);
   });
 
   nombreEditar.value = '';
@@ -252,8 +252,8 @@ async function sendInvestigadores(Url, investigadores) {
   institucionEditar.value = '';
   emailEditar.value = '';
 
-  selectInvestigador.addEventListener('change', () => {
-    const selectedId = selectInvestigador.value;
+  selectInvestigador_.addEventListener('change', () => {
+    const selectedId = selectInvestigador_.value;
     // Buscar el investigador seleccionado en la lista de investigadores
     const selectedInvestigador = response.find(
       (investigador) => investigador.id === selectedId
