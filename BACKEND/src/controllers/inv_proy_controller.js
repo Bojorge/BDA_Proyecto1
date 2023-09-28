@@ -26,15 +26,16 @@ const create = async (request, response) => {
 
 
 const create_csv = async (request, response) => {
-  const { investigadorId, proyectoId } = request.body;
+
+  const { idInv, idProy } = request.body;
   
   const session = database.session();
 
   try {
     
-    const result = await session.run(queries.add_csv, {
-      investigadorId,
-      proyectoId
+    const result = await session.run(queries.addcsv, {
+      idInv,
+      idProy
     });
     
     response.status(201).json({ message: 'Agregado con éxito' });

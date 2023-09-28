@@ -5,6 +5,7 @@ const router = Router();
 
 router.get('/', controller.get);
 router.post('/', controller.create);
+router.post('/csv', controller.create_csv);
 
 
 module.exports = router;
