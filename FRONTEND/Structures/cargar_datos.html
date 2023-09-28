@@ -8,6 +8,7 @@
     <script src="../Scripts/investigadores_CRUD.js"></script>
     <script src="../Scripts/proyectos_CRUD.js"></script>
     <script src="../Scripts/publicaciones_CRUD.js"></script> 
+    <script src="../Scripts/investigadores_proyectos_csv.js"></script> 
 </head>
 <body>
     <div class="container">
@@ -41,7 +42,7 @@
         <div class="file-upload">
             <label>Investigadores - Proyectos</label>
             <input type="file" id="csvRelacionInvestigadoresProyectos" accept=".csv">
-            <button type="submit" id="uploadRelacionInvestigadoresProyectos">Enviar a la BD</button>
+            <button onclick="uploadInv_ProyCSV()" type="submit" id="uploadRelacionInvestigadoresProyectos">Enviar a la BD</button>
         </div>
         <div class="file-upload">
             <label>Publicaciones - Proyectos</label>
