@@ -177,16 +177,16 @@ area_conocimiento.value = '';
 
 const selectProyecto = document.getElementById('selectProyecto');
 
-const tituloEditar = document.getElementById('tituloEditar');
-const annoEditar = document.getElementById('annoEditar');
-const duracionEditar = document.getElementById('duracionEditar');
-const areaEditar = document.getElementById('areaEditar');
-const btnAgregar = document.getElementById('btnAgregar');
-const btnEditar = document.getElementById('btnEditar');
+const tituloEditar_proy = document.getElementById('tituloEditar');
+const annoEditar_proy = document.getElementById('annoEditar');
+const duracionEditar_proy = document.getElementById('duracionEditar');
+const areaEditar_proy = document.getElementById('areaEditar');
+const btnAgregar_proy = document.getElementById('btnAgregar');
+const btnEditar_proy = document.getElementById('btnEditar');
 
 
 // Manejar el botón de agregar (debes modificar esto para hacer una solicitud POST)
-btnAgregar.addEventListener('click', () => {
+btnAgregar_proy.addEventListener('click', () => {
 const nuevoProyecto = {
   idPry : document.getElementById('id').value,
   titulo_proyecto : document.getElementById('titulo').value,
@@ -203,14 +203,14 @@ const nuevoProyecto = {
 });
 
 // Manejar el botón de editar (debes modificar esto para hacer una solicitud PUT)
-btnEditar.addEventListener('click', () => {
+btnEditar_proy.addEventListener('click', () => {
   const idProyecto = selectProyecto.value;
   const proyectoEditado = {
     idPry: idProyecto,
-    titulo_proyecto: tituloEditar.value,
-    anno_inicio: annoEditar.value,
-    duracion_meses: duracionEditar.value,
-    area_conocimiento: areaEditar.value
+    titulo_proyecto: tituloEditar_proy.value,
+    anno_inicio: annoEditar_proy.value,
+    duracion_meses: duracionEditar_proy.value,
+    area_conocimiento: areaEditar_proy.value
   };
 
   update(proyectosUrl, proyectoEditado);
@@ -246,10 +246,10 @@ get(proyectosUrl)
     selectProyecto.appendChild(option);
   });
 
-  tituloEditar.value = '';
-  annoEditar.value = '';
-  duracionEditar.value = '';
-  areaEditar.value = '';
+  tituloEditar_proy.value = '';
+  annoEditar_proy.value = '';
+  duracionEditar_proy.value = '';
+  areaEditar_proy.value = '';
 
   selectProyecto.addEventListener('change', () => {
     const selectedId = selectProyecto.value;
@@ -259,10 +259,10 @@ get(proyectosUrl)
     );
     if (selectedProyecto) {
       // Actualizar campos de edición con los datos del investigador seleccionado
-      tituloEditar.value = selectedProyecto.titulo_proyecto;
-      annoEditar.value = selectedProyecto.anno_inicio;
-      duracionEditar.value = selectedProyecto.duracion_meses;
-      areaEditar.value = selectedProyecto.area_conocimiento;
+      tituloEditar_proy.value = selectedProyecto.titulo_proyecto;
+      annoEditar_proy.value = selectedProyecto.anno_inicio;
+      duracionEditar_proy.value = selectedProyecto.duracion_meses;
+      areaEditar_proy.value = selectedProyecto.area_conocimiento;
     }
   });
 

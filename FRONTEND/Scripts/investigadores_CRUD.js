@@ -167,7 +167,7 @@ async function sendInvestigadores(Url, investigadores) {
  institucion.value = '';
  email.value = '';
 
- const selectInvestigador = document.getElementById('selectInvestigador');
+ const selectInvestigador_ = document.getElementById('selectInvestigador');
 
  const nombreEditar = document.getElementById('nombreEditar');
  const tituloEditar = document.getElementById('tituloEditar');
