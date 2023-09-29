@@ -173,14 +173,14 @@ nombre_revista.value = '';
 
 const selectPublicacion = document.getElementById('selectPublicacion');
 
-const tituloEditar = document.getElementById('tituloEditar');
-const annoEditar = document.getElementById('annoEditar');
-const nombreEditar = document.getElementById('nombreEditar');
-const btnAgregar = document.getElementById('btnAgregar');
-const btnEditar = document.getElementById('btnEditar');
+const tituloEditar_pub = document.getElementById('tituloEditar');
+const annoEditar_pub = document.getElementById('annoEditar');
+const nombreEditar_pub = document.getElementById('nombreEditar');
+const btnAgregar_pub = document.getElementById('btnAgregar');
+const btnEditar_pub = document.getElementById('btnEditar');
 
 // Manejar el botón de agregar (debes modificar esto para hacer una solicitud POST)
-btnAgregar.addEventListener('click', () => {
+btnAgregar_pub.addEventListener('click', () => {
     const nuevaPublicacion = {
      idPub : document.getElementById('id').value,
      titulo_publicacion : document.getElementById('titulo').value,
@@ -198,13 +198,13 @@ btnAgregar.addEventListener('click', () => {
 
 
 // Manejar el botón de editar (debes modificar esto para hacer una solicitud PUT)
-btnEditar.addEventListener('click', () => {
+btnEditar_pub.addEventListener('click', () => {
     const idPublicacion = selectPublicacion.value;
     const publicacionEditada = {
         idPub: idPublicacion,
-        titulo_publicacion: tituloEditar.value,
-        anno_publicacion: annoEditar.value,
-        nombre_revista: nombreEditar.value,
+        titulo_publicacion: tituloEditar_pub.value,
+        anno_publicacion: annoEditar_pub.value,
+        nombre_revista: nombreEditar_pub.value,
     };
 
     
@@ -241,9 +241,9 @@ btnEditar.addEventListener('click', () => {
    selectPublicacion.appendChild(option);
  });
 
- tituloEditar.value = '';
- annoEditar.value = '';
- nombreEditar.value = '';
+ tituloEditar_pub.value = '';
+ annoEditar_pub.value = '';
+ nombreEditar_pub.value = '';
 
  selectPublicacion.addEventListener('change', () => {
    const selectedId = selectPublicacion.value;
@@ -253,9 +253,9 @@ btnEditar.addEventListener('click', () => {
    );
    if (selectPublicacion) {
      // Actualizar campos de edición con los datos del investigador seleccionado
-     tituloEditar.value = selectedPublicacion.titulo_publicacion;
-     annoEditar.value = selectedPublicacion.anno_publicacion;
-     nombreEditar.value = selectedPublicacion.nombre_revista;
+     tituloEditar_pub.value = selectedPublicacion.titulo_publicacion;
+     annoEditar_pub.value = selectedPublicacion.anno_publicacion;
+     nombreEditar_pub.value = selectedPublicacion.nombre_revista;
    }
  });
 
