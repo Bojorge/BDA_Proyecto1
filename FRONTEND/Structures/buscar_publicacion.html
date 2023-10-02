@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda de publicaciones</title>
+    <link rel="stylesheet" href="../Styles/buscar_publicacion.css">
+    
+</head>
+<body>
+    <div>
+        <a href="consultas.html" class="home-button">Regresar a la página de consultas</a>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="column select-column">
+            <h2>Seleccionar publicacion</h2>
+            <select id="selectInvestigador" class="select-input" >
+                <!-- Opciones se llenarán mediante JavaScript -->
+                <option value="">Seleccionar</option>
+            </select>
+            <br>
+            <br>
+            <div id="nombreEditar" class="form-label">Titulo de la publicacion: </div>
+            <br>
+            <div id="tituloEditar" class="form-label">Año de la publicacion: </div>
+            <br>
+            <div id="institucionEditar" class="form-label">Nombre de la revista: </div>
+
+            <button id="btnEditar" class="btn btn-update">Buscar proyectos</button>
+        </div>
+
+
+        <div class="column view-column">
+            <h2>Proyectos asociados a la publicación</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo del proyecto</th>
+                        <th>Año de inicio</th>
+                        <th>Duración</th>
+                        <th>Area de conocimiento</th>
+                    </tr>
+                </thead>
+                <tbody id="proyectosList">
+                    <!-- Aquí se llenará la lista de investigadores mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+    <script src="../Scripts/buscar_publicacion.js"></script>
+</body>
+</html>
+
+
+
