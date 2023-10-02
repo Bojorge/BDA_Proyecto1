@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta de Proyectos por Área de Conocimiento</title>
     <link rel="stylesheet" href="../Styles/top_5_areas_conocimiento.css">
+    <script src="../Scripts/top_5_areas_conocimiento.js"></script> 
 </head>
 <body>
     
@@ -17,7 +18,7 @@
     <main>
         <section class="resultados">
             <h2>Áreas de Conocimiento con Mayor Cantidad de Proyectos</h2>
-            <table>
+            <table id="tabla-resultados">
                 <thead>
                     <tr>
                         <th>Área de Conocimiento</th>
@@ -25,7 +26,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Aquí se generarán las filas con los resultados de la consulta -->
+                    <!-- Fila de ejemplo que será clonada para agregar datos -->
+                    <tr id="fila-ejemplo">
+                        <td></td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </section>
