@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda de Investigadores</title>
+    <link rel="stylesheet" href="../Styles/buscar_colegas.css">
+    
+</head>
+<body>
+    <div>
+        <a href="consultas.html" class="home-button">Regresar a la página de consultas</a>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="column select-column">
+            <h2>Seleccionar Investigador</h2>
+            <select id="selectInvestigador" class="select-input" >
+                <!-- Opciones se llenarán mediante JavaScript -->
+                <option value="">Seleccionar</option>
+            </select>
+            <br>
+            <br>
+            <div id="nombreEditar" class="form-label">Nombre Completo: </div>
+            <br>
+            <div id="tituloEditar" class="form-label">Título Académico: </div>
+            <br>
+            <div id="institucionEditar" class="form-label">Institución: </div>
+            <br>
+            <div id="emailEditar" class="form-label">Email: </div>
+
+            <button id="btnEditar" class="btn btn-update">Buscar colegas</button>
+        </div>
+
+        <div class="column view-column">
+            <h2>Colegas del investigador</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre completo</th>         
+                        <th>Titulo academico</th>
+                        <th>Institucion</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="investigadoresList">
+                    <!-- Aquí se llenará la lista de investigadores mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+    <script src="../Scripts/buscar_colegas.js"></script>
+</body>
+</html>
+
+
+
