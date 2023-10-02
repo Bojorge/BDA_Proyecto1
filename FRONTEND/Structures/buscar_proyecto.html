@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda de proyectos</title>
+    <link rel="stylesheet" href="../Styles/buscar_proyecto.css">
+    
+</head>
+<body>
+    <div>
+        <a href="consultas.html" class="home-button">Regresar a la página de consultas</a>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="column select-column">
+            <h2>Seleccionar Proyecto</h2>
+            <select id="selectProyecto" class="select-input" >
+                <!-- Opciones se llenarán mediante JavaScript -->
+                <option value="">Seleccionar</option>
+            </select>
+            <br>
+            <br>
+            <div id="nombreEditar" class="form-label">Titulo del proyecto: </div>
+            <br>
+            <div id="tituloEditar" class="form-label">Año de inicio: </div>
+            <br>
+            <div id="institucionEditar" class="form-label">Duración: </div>
+            <br>
+            <div id="emailEditar" class="form-label">Area de conocimiento: </div>
+
+            <button id="btnEditar" class="btn btn-update">Buscar investigadores y publicaciones</button>
+        </div>
+
+        <div class="column view-column">
+            <h2>Investigadores que participan</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Título</th>
+                        <th>Institución</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="investigadoresList">
+                    <!-- Aquí se llenará la lista de investigadores mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="column view-column">
+            <h2>Publicaciones</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titulo de publicacion</th>
+                        <th>Año</th>
+                        <th>Revista</th>
+                    </tr>
+                </thead>
+                <tbody id="publicacionesList">
+                    <!-- Aquí se llenará la lista de investigadores mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+    <script src="../Scripts/buscar_proyecto.js"></script>
+</body>
+</html>
+
+
+
